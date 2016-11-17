@@ -1,7 +1,7 @@
-title            : MS00AltKlausur
+title            : MS00 Interaktives R-Training
 instructors      :
  - daniel.brunner@hhu.de
-description      : Dieser Onlinekurs stellt eine zusätzliche Übungsmöglichkeit für den Umgang mit R. Der Inhalt besteht aus einer aufbereiteten Klausur des WS 15/16.  
-university       : DataCamp
+description      : Dieser Onlinekurs stellt eine zusätzliche Übungsmöglichkeit für den Umgang mit R dar. 
+university       : Düsseldorf
 difficulty_level : 2
 time_needed      : 2 hour
