@@ -195,7 +195,7 @@ success_msg("Richtig!")
 *** =instructions
 Beurteilen Sie die Gesamtsignifikanz der Koeffizienten *umsaetze* und *gewinne* durch den Vergleich eines restringierten und unrestringierten Modells.
 
-Berechnen Sie dazu die Teststatistik und den relevanten kritischen Wert. 
+Berechnen Sie dazu die Teststatistik und den relevanten kritischen Wert (5% Irrtumswahrscheinlichkeit). 
 
 *** =hint
 Siehe die Übung zum dritten Termin.
@@ -243,7 +243,7 @@ success_msg("Richtig!")
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:926ab53810
-## Funktionale Form
+## Funktionale Form (1)
 
 
 *** =instructions
@@ -286,91 +286,83 @@ success_msg("Richtig!")
 
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:d100fd007c
+
+
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:2fbd51b6fe
 ## Heteroskedastie
 
+Testen Sie für die Regression *gehalt* auf *umsaetze* und *gewinne*, ob ein Problem mit Heteroskedastie vorliegt.
 
 *** =instructions
-Beschreiben Sie kurz, welche Hypothese im Breusch-Pagan Test überprüft wird \textbf{und} wie der Test aufgebaut ist.  
+- Es liegt kein Problem mit Heteroskedastie vor.
+- Die Homoskedastie Hypothese kann nicht verworfen werden.
+- Es liegt ein Problem mit Heteroskedastie vor.
+
 *** =hint
+Verwenden Sie die Funktion bptest().
+*** =pre_exercise_code
+```{r}
+data<-read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_2219/datasets/ceosa.csv", sep = ",")
+gehalt<-data$gehalt
+umsaetze<-data$umsaetze
+gewinne<-data$gewinne
+alter<-data$alter
+ausbildung<-data$ausbildung
+library(lmtest)
+#reg2<-lm(gehalt~umsaetze+gewinne)
+#bptest(reg2)
+```
+
+*** =sct
+```{r}
+msg1 = "Falsch."
+msg2 = "Richtig!"
+msg3 = "Falsch. Beachte den P-Wert des BP Tests."
+test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
+```
+
+
+
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:ad0a22b311
+## Funktionale Form (2)
+
+Testen Sie, ob Anzeichen für eine Fehlspezifikation der funktionalen Form vorliegen. Führen Sie dazu einen RESET Test mit zweiten und dritten Polynomen durch.
+
+*** =instructions
+- auf einem 1% Signifikanzniveau lässt sich H0 verwerfen.
+- auf einem 5% Signifikanzniveau lässt sich H0 verwerfen.
+- auf einem 10% Signifikanzniveau lässt sich H0 verwerfen.
+- H0 lässt sich nicht verwerfen auf den gängigen Signifikanzniveaus.
+*** =hint
+Verwenden Sie den linearHypothesis() Befehl und Übung oder Vorlesung (siehe z.B. Skript S. 197)
 
 *** =pre_exercise_code
 ```{r}
+library(car)
+data<-read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_2219/datasets/ceosa.csv", sep = ",")
+gehalt<-data$gehalt
+umsaetze<-data$umsaetze
+gewinne<-data$gewinne
+alter<-data$alter
+ausbildung<-data$ausbildung
 
-```
+#reg4<-lm(gehalt~umsaetze + gewinne)
+#summary(reg4)
 
-*** =sample_code
-```{r}
+#ydach2 <- fitted(reg4)^2
+#ydach3 <- fitted(reg4)^3
 
-```
+#summary(unrestr <- lm(gehalt~umsaetze + gewinne + ydach2 + ydach3))
 
-*** =solution
-```{r}
+#linearHypothesis(unrestr,c("ydach2=0","ydach3=0"))
 
 ```
 
 *** =sct
 ```{r}
-
-```
-
-
-
---- type:NormalExercise lang:r xp:100 skills:1 key:6f3df2ec32
-## Funktionale Form
-
-*** =instructions
-Die funktionale Form ist korrekt
-Ergebnis: verwerfe H0 auf 10 \% Signifikanzniveau, höhere Polynome erhöhen den Anteil der erklärten Varianz signifikant.
-
-*** =hint
-
-*** =pre_exercise_code
-```{r}
-
-```
-
-*** =sample_code
-```{r}
-
-```
-
-*** =solution
-```{r}
-
-```
-
-*** =sct
-```{r}
-
-```
-
-
-
---- type:NormalExercise lang:r xp:100 skills:1 key:f3487c5cae
-## <<<New Exercise>>> 
-
-
-*** =instructions
-Interaktionseffekte...
-*** =hint
-
-*** =pre_exercise_code
-```{r}
-
-```
-
-*** =sample_code
-```{r}
-
-```
-
-*** =solution
-```{r}
-
-```
-
-*** =sct
-```{r}
-
+msg1 = "Falsch."
+msg2 = "Falsch."
+msg3 = "Richtig!"
+msg4 = "Falsch."
+test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
