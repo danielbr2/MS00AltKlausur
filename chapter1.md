@@ -15,7 +15,7 @@ Der vorliegende Datensatz enthält Daten über 177 CEO's und dient dazu den Effe
 
 Lesen Sie den Datensatz ein.
 *** =hint
-read.csv()
+read.csv( url , sep="," )
 
 *** =pre_exercise_code
 ```{r}
@@ -239,7 +239,7 @@ test_error()
 test_object("teststat",
             undefined_msg = "Hier hat etwas nicht geklappt. Versuchen Sie es erneut!",
             incorrect_msg = "Es wurden falsche Werte zugewiesen.")
-test_object("teststat",
+test_object("kritWert",
             undefined_msg = "Hier hat etwas nicht geklappt. Versuchen Sie es erneut!",
             incorrect_msg = "Es wurden falsche Werte zugewiesen.")
 success_msg("Richtig!")
