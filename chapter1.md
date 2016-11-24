@@ -37,7 +37,11 @@ daten<-read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_2
 
 *** =sct
 ```{r}
-
+test_error()
+test_object("daten",
+            undefined_msg = "Hier hat etwas nicht geklappt. Versuchen Sie es erneut!",
+            incorrect_msg = "Es wurden falsche Werte zugewiesen.")
+success_msg("Richtig!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:36071e0bd3
