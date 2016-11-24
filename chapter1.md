@@ -253,7 +253,7 @@ success_msg("Richtig!")
 
 
 *** =instructions
-Schätzen Sie ein Modell, sodass Sie folgende Interpreation des Regressionskoeffizienten erhalten:
+Schätzen Sie ein Modell, sodass Sie folgende Interpretation des Regressionskoeffizienten erhalten:
 
 Eine Veränderung von *gewinne* um eine Einheit führt zu einer
 Veränderung von *gehalt* um 100 * b %, während die Variable *umsaetze* konstant gehalten wird.
@@ -279,7 +279,7 @@ ausbildung<-data$ausbildung
 
 *** =solution
 ```{r}
-reg2<-lm(I(log(gehalt)~umsaetze+gewinne))
+reg2<-lm(I(log(gehalt))~umsaetze+gewinne)
 ```
 
 *** =sct
