@@ -62,6 +62,7 @@ ausbildung<-data$ausbildung
 *** =sample_code
 ```{r}
 # Die Variablen *gehalt*, *umsaetze* und *gewinne* sind bereits eingelesen.
+# Nutzen Sie *umsaetze* als ersten und *gewinne* als zweiten Regressor.
 # Speichern Sie das Ergebnis der Regression unter dem Objekt *reg1* .
 ```
 
@@ -222,8 +223,9 @@ ausbildung<-data$ausbildung
 *** =solution
 ```{r}
 reg2<- lm(gehalt~umsaetze+gewinne)
-R2r<-summary(reg2)$r.squared
-teststat<- ((0-R2r)/(1-0))*((177-2-1)/2)
+R2u<-summary(reg2)$r.squared
+R2r<- 0
+teststat<- ((R2u-R2r)/(1-R2u))*((177-2-1)/2)
 kritWert<- qf(1-0.05,2,177-2-1)
 ```
 
@@ -267,6 +269,7 @@ ausbildung<-data$ausbildung
 
 *** =sample_code
 ```{r}
+# Nutzen Sie *umsaetze* als ersten und *gewinne* als zweiten Regressor.
 # Speichern Sie Ihr Ergebnis unter dem Objekt *reg2* .
 ```
 
@@ -326,7 +329,9 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:ad0a22b311
 ## Funktionale Form (2)
 
-Testen Sie, ob Anzeichen für eine Fehlspezifikation der funktionalen Form vorliegen. Führen Sie dazu einen RESET Test mit zweiten und dritten Polynomen durch.
+Testen Sie, ob Anzeichen für eine Fehlspezifikation der funktionalen Form vorliegen. Führen Sie dazu einen RESET Test mit zweiten und dritten Polynomen durch. 
+
+Es gilt weiterhin das Regressionsmodell von *gehalt* auf *umsaetze* und *gewinne*. 
 
 *** =instructions
 - auf einem 1% Signifikanzniveau lässt sich H0 verwerfen.
